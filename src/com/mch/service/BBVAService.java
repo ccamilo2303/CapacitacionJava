@@ -5,22 +5,32 @@ import com.mch.interfaces.BancoInterface;
 public class BBVAService implements BancoInterface {
 	// BBVA mostrar los números primos hasta el 50
 	@Override
-	public  void calcularCartera() {
+	public void calcularCartera() {
 		StringBuilder numerosPrimos = new StringBuilder("");
+
 		for (int i = 0; i <= 50; i++) {
 			// El 0, 1 y 4 no son primos
-			if (i == 0 || i == 1 || i == 4) {
-				continue;
+			if (determinarEsPrimo(i)) {
+				numerosPrimos.append(i);
 			}
-			for (int x = 2; x < i / 2; x++) {
-				// Si es divisible por cualquiera de estos números, no es primo
-				if (i % x == 0)
-					continue;
-			}
-			numerosPrimos.append(i);
 		}
 		System.out.println(numerosPrimos);
 	}
 
+	private boolean determinarEsPrimo(int numero) {
+		int contador = 0;
+		for (int j = 1; j <= numero; j++) {
+			if ((numero % j) == 0) {
+				contador++;
+			}
+		}
+		if (contador <= 2) {
+			return true;
+
+		} else {
+			return false;
+		}
+
+	}
 
 }

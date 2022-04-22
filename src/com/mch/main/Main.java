@@ -7,15 +7,15 @@ import java.util.function.Predicate;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-import com.mch.dto.Ingeniero;
-import com.mch.dto.Person;
+import com.mch.dto.IngenieroDto;
+import com.mch.dto.PersonDto;
 
 public class Main {
 
-    // Con la palabra new creo instancia de clase Person
+    // Con la palabra new creo instancia de clase PersonDto
     // Por medio de la instancia se crea un objeto que se guarda en memoria
-    private Person person = new Person();
-    // la variable person es la referencia de memoria para recuperar el obj
+    private PersonDto PersonDto = new PersonDto();
+    // la variable PersonDto es la referencia de memoria para recuperar el obj
 
 
     // instancias, objetos, constructores (sintaxis de java)
@@ -97,8 +97,8 @@ public class Main {
             GB => garbage collector
          */
 
-        List<Person> personsList = new ArrayList<Person>();
-        personsList.add(new Person()); // Está especializado en guardar
+        List<PersonDto> PersonDtosList = new ArrayList<PersonDto>();
+        PersonDtosList.add(new PersonDto()); // Está especializado en guardar
         // Wrapper
         int edad = 0;
         Integer edad2 = 0;
@@ -115,49 +115,49 @@ public class Main {
         
 
 
-        personsList.stream().filter ( (person) -> person.getEge() == 2);
+        PersonDtosList.stream().filter ( (PersonDto) -> PersonDto.getEge() == 2);
 
         //["Adrian", "Emanuel", "Cristian"]
 
-        List<String> nombres = personsList
+        List<String> nombres = PersonDtosList
         .stream()
-        .filter ( (person) -> person.getEge() == 2) // Se define un filter con una condicion
-        .map( (person) -> person.getName())// El map sirve para transformar la entrada a cualquier salida
+        .filter ( (PersonDto) -> PersonDto.getEge() == 2) // Se define un filter con una condicion
+        .map( (PersonDto) -> PersonDto.getName())// El map sirve para transformar la entrada a cualquier salida
         .collect(Collectors.toList());// Me sirve para transformar el stream a una lista
 
-        List<Ingeniero> ingenieros = personsList
+        List<IngenieroDto> IngenieroDtos = PersonDtosList
         .stream()
-        .filter ( (person) -> person.getEge() == 2) // Se define un filter con una condicion
-        .map( (person) -> new Ingeniero("Ing Sistemas", person.getName()))// El map sirve para transformar la entrada a cualquier salida
+        .filter ( (PersonDto) -> PersonDto.getEge() == 2) // Se define un filter con una condicion
+        .map( (PersonDto) -> new IngenieroDto("Ing Sistemas", PersonDto.getName()))// El map sirve para transformar la entrada a cualquier salida
         .collect(Collectors.toList());// Me sirve para transformar el stream a una lista
 
-        List<Person> personsList3 = personsList
+        List<PersonDto> PersonDtosList3 = PersonDtosList
         .stream()
-        .filter ( (person) -> person.getEge() == 2) // Se define un filter con una condicion
+        .filter ( (PersonDto) -> PersonDto.getEge() == 2) // Se define un filter con una condicion
         .collect(Collectors.toList());// Me sirve para transformar el stream a una lista
 
 
-        personsList.stream().forEach( (person) -> {
-            if(person.getEge() == 2){
+        PersonDtosList.stream().forEach( (PersonDto) -> {
+            if(PersonDto.getEge() == 2){
                 System.out.println("Tiene 2");
             }
             
         });
 
-        personsList.stream().forEach( (person) -> System.out.println(person));
+        PersonDtosList.stream().forEach( (PersonDto) -> System.out.println(PersonDto));
         
 
         // f(x)
         //entrada -> (operador) {definición}
 
-        List<Person> personsList2 = new LinkedList<Person>();
-        personsList2.add(new Person());// Está especializado en buscar
+        List<PersonDto> PersonDtosList2 = new LinkedList<PersonDto>();
+        PersonDtosList2.add(new PersonDto());// Está especializado en buscar
         
 
 	
-        Person person1 = new Person();
-        person1.getName();
-        person1.setEge(1);
+        PersonDto PersonDto1 = new PersonDto();
+        PersonDto1.getName();
+        PersonDto1.setEge(1);
 
         System.out.println("Hola mundo");
 	}
